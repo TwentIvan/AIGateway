@@ -1,9 +1,11 @@
-run = "cowsay Configure me!"
-entrypoint = "README.md"
+run = "pip install -q -r requirements.txt && litellm --config config.yaml --host 0.0.0.0 --port $PORT"
+entrypoint = "config.yaml"
 
 [nix]
 channel = "stable-24_11"
-packages = ["cowsay"]
+
+[deployment]
+run = ["sh", "-c", "pip install -q -r requirements.txt && litellm --config config.yaml --host 0.0.0.0 --port $PORT"]
 
 [agent]
 expertMode = true
