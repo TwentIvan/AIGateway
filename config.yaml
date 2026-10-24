@@ -35,6 +35,28 @@ model_list:
       model: anthropic/claude-3-5-sonnet-latest
       api_key: os.environ/ANTHROPIC_API_KEY
 
+  # --- OpenRouter: una chiave, centinaia di modelli (open weight compresi) ---
+  # Il model_name è il nome che usano gli agenti; litellm_params.model è l'ID reale su OpenRouter.
+  - model_name: "openrouter/auto"
+    litellm_params:
+      model: openrouter/openrouter/auto
+      api_key: os.environ/OPENROUTER_API_KEY
+
+  - model_name: "openrouter/deepseek-chat"
+    litellm_params:
+      model: openrouter/deepseek/deepseek-chat
+      api_key: os.environ/OPENROUTER_API_KEY
+
+  - model_name: "openrouter/qwen3-235b"
+    litellm_params:
+      model: openrouter/qwen/qwen3-235b-a22b
+      api_key: os.environ/OPENROUTER_API_KEY
+
+  - model_name: "openrouter/mistral-small"
+    litellm_params:
+      model: openrouter/mistralai/mistral-small
+      api_key: os.environ/OPENROUTER_API_KEY
+
 litellm_settings:
   # scarta i parametri non supportati dal provider di destinazione
   # (es. cache_control verso OpenAI): essenziale per la patch caching
